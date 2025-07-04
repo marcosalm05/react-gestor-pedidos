@@ -13,12 +13,31 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Checkbox } from "@/components/ui/checkbox"
 
 interface Product {
-  id: number
-  name: string
-  code: string
-  category: string
-  price: number
+  pro_codigo: number
+  pre_descripcion?: string
+  ppc_cantxpresentacion?: number
+  pro_balanzaconf?:number
+  pro_entrega_vehichulo?: number
+  pro_codori: string
+  pro_detalle: string
+  pro_ubicacion?: number
+  prov_descr?:string
+  pro_minimo?: number
+  pro_categoria?: number
+  pro_iva?: number
+  pro_conpro?: number
+  pro_valcopro?:number
+  pro_valporce?: number
+  pro_venta1?:number
+  pro_coststo?:number
+  pro_venta2?:number
+  pro_venta3?:number
+  pro_venta4?:number
+  sto_cantidad?:number //Este vamos a mostrar
+  sto_vencimiento?:string
+  cat_descri: string
   image: string
+  
 }
 
 interface CartItem extends Product {
@@ -27,51 +46,51 @@ interface CartItem extends Product {
 
 const mockProducts: Product[] = [
   {
-    id: 1,
-    name: "Smartphone Galaxy Pro",
-    code: "SGP001",
-    category: "Electrónicos",
-    price: 299.99,
+    pro_codigo: 1,
+    pro_detalle: "Smartphone Galaxy Pro",
+    pro_codori: "SGP001",
+    cat_descri: "Electrónicos",
+    pro_venta1: 299.99,
     image: "/placeholder.svg?height=250&width=250",
   },
   {
-    id: 2,
-    name: "Laptop Gaming Elite",
-    code: "LGE002",
-    category: "Computadoras",
-    price: 899.99,
+    pro_codigo: 2,
+    pro_detalle: "Laptop Gaming Elite",
+    pro_codori: "LGE002",
+    cat_descri: "Computadoras",
+    pro_venta1: 899.99,
     image: "/placeholder.svg?height=250&width=250",
   },
   {
-    id: 3,
-    name: "Auriculares Premium",
-    code: "APR003",
-    category: "Audio",
-    price: 79.99,
+    pro_codigo: 3,
+    pro_detalle: "Auriculares Premium",
+    pro_codori: "APR003",
+    cat_descri: "Audio",
+    pro_venta1: 79.99,
     image: "/placeholder.svg?height=250&width=250",
   },
   {
-    id: 4,
-    name: "Tablet Ultra 12''",
-    code: "TUL004",
-    category: "Electrónicos",
-    price: 249.99,
+    pro_codigo: 4,
+    pro_detalle: "Tablet Ultra 12''",
+    pro_codori: "TUL004",
+    cat_descri: "Electrónicos",
+    pro_venta1: 249.99,
     image: "/placeholder.svg?height=250&width=250",
   },
   {
-    id: 5,
-    name: "Smartwatch Sport",
-    code: "SWS005",
-    category: "Wearables",
-    price: 199.99,
+    pro_codigo: 5,
+    pro_detalle: "Smartwatch Sport",
+    pro_codori: "SWS005",
+    cat_descri: "Wearables",
+    pro_venta1: 199.99,
     image: "/placeholder.svg?height=250&width=250",
   },
   {
-    id: 6,
-    name: "Cámara Profesional",
-    code: "CPR006",
-    category: "Fotografía",
-    price: 449.99,
+    pro_codigo: 6,
+    pro_detalle: "Cámara Profesional",
+    pro_codori: "CPR006",
+    cat_descri: "Fotografía",
+    pro_venta1: 449.99,
     image: "/placeholder.svg?height=250&width=250",
   },
 ]
@@ -94,18 +113,18 @@ export default function EcommercePage() {
   })
 
   const filteredProducts = mockProducts.filter((product) => {
-    const categoryMatch = selectedCategory === "Todos" || product.category === selectedCategory
+    const categoryMatch = selectedCategory === "Todos" || product.cat_descri === selectedCategory
     const searchMatch =
-      product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      product.code.toLowerCase().includes(searchTerm.toLowerCase())
+      product.pro_detalle.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.pro_codori.toLowerCase().includes(searchTerm.toLowerCase())
     return categoryMatch && searchMatch
   })
 
   const addToCart = (product: Product) => {
     setCart((prev) => {
-      const existing = prev.find((item) => item.id === product.id)
+      const existing = prev.find((item) => item.pro_codigo === product.pro_codigo)
       if (existing) {
-        return prev.map((item) => (item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item))
+        return prev.map((item) => (item.pro_codigo === product.pro_codigo ? { ...item, quantity: item.quantity + 1 } : item))
       }
       return [...prev, { ...product, quantity: 1 }]
     })
@@ -116,15 +135,15 @@ export default function EcommercePage() {
       removeFromCart(id)
       return
     }
-    setCart((prev) => prev.map((item) => (item.id === id ? { ...item, quantity } : item)))
+    setCart((prev) => prev.map((item) => (item.pro_codigo === id ? { ...item, quantity } : item)))
   }
 
   const removeFromCart = (id: number) => {
-    setCart((prev) => prev.filter((item) => item.id !== id))
+    setCart((prev) => prev.filter((item) => item.pro_codigo !== id))
   }
 
   const getTotalPrice = () => {
-    return cart.reduce((total, item) => total + item.price * item.quantity, 0)
+    return cart.reduce((total, item) => total + item.pro_venta1 * item.quantity, 0)
   }
 
   const handleCheckout = () => {
@@ -240,21 +259,21 @@ export default function EcommercePage() {
           <div className="lg:col-span-2">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {filteredProducts.map((product) => (
-                <Card key={product.id} className="hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
+                <Card key={product.pro_codigo} className="hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
                   <CardContent className="p-0">
                     <div className="relative">
                       <img
                         src={product.image || "/placeholder.svg"}
-                        alt={product.name}
+                        alt={product.pro_detalle}
                         className="w-full h-48 object-cover rounded-t-lg"
                       />
-                      <Badge className="absolute top-3 left-3 bg-blue-600 hover:bg-blue-700">{product.category}</Badge>
+                      <Badge className="absolute top-3 left-3 bg-blue-600 hover:bg-blue-700">{product.cat_descri}</Badge>
                     </div>
                     <div className="p-4 space-y-3">
-                      <h3 className="font-bold text-lg text-gray-800">{product.name}</h3>
-                      <p className="text-sm text-gray-600">Código: {product.code}</p>
+                      <h3 className="font-bold text-lg text-gray-800">{product.pro_detalle}</h3>
+                      <p className="text-sm text-gray-600">Código: {product.pro_codori}</p>
                       <div className="flex items-center justify-between">
-                        <span className="text-2xl font-bold text-blue-600">${product.price}</span>
+                        <span className="text-2xl font-bold text-blue-600">${product.pro_venta1}</span>
                         <Button
                           onClick={() => addToCart(product)}
                           className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-6"
@@ -289,25 +308,25 @@ export default function EcommercePage() {
                   <div className="space-y-4">
                     <div className="max-h-64 overflow-y-auto space-y-3">
                       {cart.map((item) => (
-                        <div key={item.id} className="bg-gray-50 rounded-lg p-3">
+                        <div key={item.pro_codigo} className="bg-gray-50 rounded-lg p-3">
                           <div className="flex justify-between items-start mb-2">
-                            <h4 className="font-medium text-sm text-gray-800">{item.name}</h4>
+                            <h4 className="font-medium text-sm text-gray-800">{item.pro_detalle}</h4>
                             <Button
                               variant="ghost"
                               size="sm"
-                              onClick={() => removeFromCart(item.id)}
+                              onClick={() => removeFromCart(item.pro_codigo)}
                               className="text-red-500 hover:text-red-700 hover:bg-red-50"
                             >
                               <X className="h-4 w-4" />
                             </Button>
                           </div>
-                          <p className="text-xs text-gray-600 mb-3">Código: {item.code}</p>
+                          <p className="text-xs text-gray-600 mb-3">Código: {item.pro_codori}</p>
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-2">
                               <Button
                                 variant="outline"
                                 size="sm"
-                                onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                                onClick={() => updateQuantity(item.pro_codigo, item.quantity - 1)}
                                 className="h-8 w-8 p-0 border-blue-300 text-blue-600 hover:bg-blue-50"
                               >
                                 <Minus className="h-3 w-3" />
@@ -316,13 +335,13 @@ export default function EcommercePage() {
                               <Button
                                 variant="outline"
                                 size="sm"
-                                onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                                onClick={() => updateQuantity(item.pro_codigo, item.quantity + 1)}
                                 className="h-8 w-8 p-0 border-blue-300 text-blue-600 hover:bg-blue-50"
                               >
                                 <Plus className="h-3 w-3" />
                               </Button>
                             </div>
-                            <span className="font-bold text-blue-600">${(item.price * item.quantity).toFixed(2)}</span>
+                            <span className="font-bold text-blue-600">${(item.pro_venta1 * item.quantity).toFixed(2)}</span>
                           </div>
                         </div>
                       ))}
