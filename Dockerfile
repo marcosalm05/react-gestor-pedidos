@@ -9,7 +9,7 @@ COPY package.json ./
 COPY package-lock.json ./
 
 # Install dependencies
-RUN npm ci
+RUN npm ci --force
 
 # Copy the rest of the application code
 COPY . .
@@ -32,7 +32,7 @@ COPY --from=builder /app/package-lock.json ./package-lock.json
 COPY --from=builder /app/public ./public
 
 # Install only production dependencies
-RUN npm ci --omit=dev
+RUN npm ci --omit=dev --force
 
 # Expose the port the app runs on
 EXPOSE 3000
