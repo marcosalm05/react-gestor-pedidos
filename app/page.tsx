@@ -28,18 +28,23 @@ interface Product {
   pro_conpro?: number
   pro_valcopro?:number
   pro_valporce?: number
-  pro_venta1?:number
+  pro_venta1:number
   pro_coststo?:number
   pro_venta2?:number
   pro_venta3?:number
   pro_venta4?:number
   sto_cantidad?:number //Este vamos a mostrar
   sto_vencimiento?:string
+  sto_lote?: string
   cat_descri: string
-  image: string
-  
+  ub_descri?: string
+  pro_activarsaltoprecio2normal?: boolean
+  pro_activarsaltoprecio3normal?: boolean
+  pro_cantidadsaltoprecio2normal?: number
+  pro_cantidadsaltoprecio3normal?: number
+  pro_cantidadsaltoprecio4normal?: number
+  image?: string
 }
-
 interface CartItem extends Product {
   quantity: number
 }
