@@ -110,7 +110,7 @@ export default function EcommercePage() {
   const [checkoutForm, setCheckoutForm] = useState({
     firstName: "",
     lastName: "",
-    location: "",
+    ci: "",
     email: "",
     whatsapp: "",
     observations: "",
@@ -163,7 +163,7 @@ export default function EcommercePage() {
     setCheckoutForm({
       firstName: "",
       lastName: "",
-      location: "",
+      ci: "",
       email: "",
       whatsapp: "",
       observations: "",
@@ -411,8 +411,8 @@ export default function EcommercePage() {
               </Label>
               <Input
                 id="location"
-                value={checkoutForm.location}
-                onChange={(e) => setCheckoutForm((prev) => ({ ...prev, location: e.target.value }))}
+                value={checkoutForm.ci}
+                onChange={(e) => setCheckoutForm((prev) => ({ ...prev, ci: e.target.value }))}
                 className="border-blue-200 focus:border-blue-500 focus:ring-blue-500"
               />
             </div>
