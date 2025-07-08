@@ -105,6 +105,7 @@ const categories = ["Todos", "Electrónicos", "Computadoras", "Audio", "Wearable
 export default function EcommercePage() {
   const [cart, setCart] = useState<CartItem[]>([])
   const [selectedCategory, setSelectedCategory] = useState("Todos")
+  const [selectedLogo, setSelectedLogo] = useState(1)
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false)
   const [searchTerm, setSearchTerm] = useState("")
   const [checkoutForm, setCheckoutForm] = useState({
@@ -374,7 +375,479 @@ export default function EcommercePage() {
           </div>
         </div>
       </div>
+            
+          {/* Diseños de Logo */}
+          <div className="lg:col-span-4">
+            <div className="text-center mb-8">
+              <h1 className="text-4xl font-bold text-blue-800 mb-2">Diseños de Logo</h1>
+              <h2 className="text-2xl text-blue-600">Juguetería Daniel</h2>
+              <p className="text-gray-600 mt-2">Selecciona el diseño que más te guste</p>
+            </div>
 
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Logo 1: Corona en la D */}
+              <Card
+                className={`cursor-pointer transition-all ${selectedLogo === 1 ? "ring-4 ring-blue-500 shadow-xl" : "hover:shadow-lg"}`}
+                onClick={() => setSelectedLogo(1)}
+              >
+                <CardHeader>
+                  <CardTitle className="text-center">Opción 1: Corona en la D</CardTitle>
+                </CardHeader>
+                <CardContent className="flex flex-col items-center justify-center h-64 bg-white">
+                  <svg width="200" height="120" viewBox="0 0 200 120" className="mb-4">
+                    {/* Juguetería */}
+                    <text
+                      x="100"
+                      y="25"
+                      textAnchor="middle"
+                      className="fill-blue-600 text-lg font-bold"
+                      style={{ fontFamily: "Arial, sans-serif", fontSize: "16px" }}
+                    >
+                      JUGUETERÍA
+                    </text>
+
+                    {/* Daniel con corona en D */}
+                    <g>
+                      {/* Corona sobre la D */}
+                      <path
+                        d="M 25 45 L 30 35 L 35 40 L 40 35 L 45 40 L 50 35 L 55 45 Z"
+                        fill="#FFD700"
+                        stroke="#FFA500"
+                        strokeWidth="1"
+                      />
+                      <circle cx="30" cy="38" r="1.5" fill="#FF6B6B" />
+                      <circle cx="40" cy="38" r="1.5" fill="#4CAF50" />
+                      <circle cx="50" cy="38" r="1.5" fill="#FF6B6B" />
+
+                      {/* Letra D estilizada */}
+                      <path
+                        d="M 25 50 L 25 85 L 45 85 C 55 85 60 75 60 67.5 C 60 60 55 50 45 50 Z"
+                        fill="#2A5CAA"
+                        stroke="#1E3A8A"
+                        strokeWidth="1"
+                      />
+
+                      {/* Resto de ANIEL */}
+                      <text
+                        x="70"
+                        y="75"
+                        className="fill-blue-700 font-bold"
+                        style={{ fontFamily: "Arial, sans-serif", fontSize: "24px" }}
+                      >
+                        ANIEL
+                      </text>
+                    </g>
+
+                    {/* Juguetes decorativos */}
+                    <circle cx="160" cy="60" r="8" fill="#FF6B6B" opacity="0.7" />
+                    <rect x="170" y="70" width="12" height="12" fill="#4CAF50" opacity="0.7" rx="2" />
+                    <polygon points="185,65 190,75 180,75" fill="#FFD700" opacity="0.7" />
+                  </svg>
+                  {selectedLogo === 1 && <Badge className="bg-blue-600">Seleccionado</Badge>}
+                </CardContent>
+              </Card>
+
+              {/* Logo 2: Corona sobre la i */}
+              <Card
+                className={`cursor-pointer transition-all ${selectedLogo === 2 ? "ring-4 ring-blue-500 shadow-xl" : "hover:shadow-lg"}`}
+                onClick={() => setSelectedLogo(2)}
+              >
+                <CardHeader>
+                  <CardTitle className="text-center">Opción 2: Corona en la i</CardTitle>
+                </CardHeader>
+                <CardContent className="flex flex-col items-center justify-center h-64 bg-white">
+                  <svg width="200" height="120" viewBox="0 0 200 120" className="mb-4">
+                    {/* Juguetería con corona en i */}
+                    <text
+                      x="100"
+                      y="25"
+                      textAnchor="middle"
+                      className="fill-blue-600 text-lg font-bold"
+                      style={{ fontFamily: "Arial, sans-serif", fontSize: "16px" }}
+                    >
+                      JUGUETER
+                    </text>
+
+                    {/* Corona sobre la i */}
+                    <path
+                      d="M 140 8 L 143 3 L 146 6 L 149 3 L 152 6 L 155 3 L 158 8 Z"
+                      fill="#FFD700"
+                      stroke="#FFA500"
+                      strokeWidth="0.5"
+                    />
+                    <circle cx="143" cy="5" r="0.8" fill="#FF6B6B" />
+                    <circle cx="149" cy="5" r="0.8" fill="#4CAF50" />
+                    <circle cx="155" cy="5" r="0.8" fill="#FF6B6B" />
+
+                    {/* Letra i */}
+                    <rect x="147" y="12" width="4" height="15" fill="#2A5CAA" />
+
+                    {/* A final */}
+                    <text
+                      x="160"
+                      y="25"
+                      className="fill-blue-600 text-lg font-bold"
+                      style={{ fontFamily: "Arial, sans-serif", fontSize: "16px" }}
+                    >
+                      A
+                    </text>
+
+                    {/* Daniel */}
+                    <text
+                      x="100"
+                      y="65"
+                      textAnchor="middle"
+                      className="fill-blue-700 font-bold"
+                      style={{ fontFamily: "Arial, sans-serif", fontSize: "28px" }}
+                    >
+                      DANIEL
+                    </text>
+
+                    {/* Juguetes decorativos */}
+                    <circle cx="30" cy="80" r="6" fill="#FF6B6B" opacity="0.8" />
+                    <rect x="40" y="85" width="8" height="8" fill="#4CAF50" opacity="0.8" rx="1" />
+                    <circle cx="170" cy="80" r="6" fill="#FFD700" opacity="0.8" />
+                  </svg>
+                  {selectedLogo === 2 && <Badge className="bg-blue-600">Seleccionado</Badge>}
+                </CardContent>
+              </Card>
+
+              {/* Logo 3: Logo Horizontal */}
+              <Card
+                className={`cursor-pointer transition-all ${selectedLogo === 3 ? "ring-4 ring-blue-500 shadow-xl" : "hover:shadow-lg"}`}
+                onClick={() => setSelectedLogo(3)}
+              >
+                <CardHeader>
+                  <CardTitle className="text-center">Opción 3: Horizontal</CardTitle>
+                </CardHeader>
+                <CardContent className="flex flex-col items-center justify-center h-64 bg-white">
+                  <svg width="220" height="100" viewBox="0 0 220 100" className="mb-4">
+                    {/* Corona principal */}
+                    <path
+                      d="M 15 25 L 22 10 L 29 18 L 36 10 L 43 18 L 50 10 L 57 25 Z"
+                      fill="#FFD700"
+                      stroke="#FFA500"
+                      strokeWidth="1"
+                    />
+                    <circle cx="22" cy="15" r="2" fill="#FF6B6B" />
+                    <circle cx="36" cy="15" r="2" fill="#4CAF50" />
+                    <circle cx="50" cy="15" r="2" fill="#FF6B6B" />
+
+                    {/* Juguetería */}
+                    <text
+                      x="80"
+                      y="25"
+                      className="fill-blue-600 font-bold"
+                      style={{ fontFamily: "Arial, sans-serif", fontSize: "18px" }}
+                    >
+                      JUGUETERÍA
+                    </text>
+
+                    {/* Daniel */}
+                    <text
+                      x="80"
+                      y="55"
+                      className="fill-blue-700 font-bold"
+                      style={{ fontFamily: "Arial, sans-serif", fontSize: "24px" }}
+                    >
+                      DANIEL
+                    </text>
+
+                    {/* Juguetes alrededor */}
+                    <g opacity="0.7">
+                      <circle cx="200" cy="20" r="8" fill="#FF6B6B" />
+                      <rect x="185" y="35" width="12" height="12" fill="#4CAF50" rx="2" />
+                      <polygon points="15,70 25,85 5,85" fill="#FFD700" />
+                      <circle cx="200" cy="60" r="6" fill="#2A5CAA" />
+                    </g>
+                  </svg>
+                  {selectedLogo === 3 && <Badge className="bg-blue-600">Seleccionado</Badge>}
+                </CardContent>
+              </Card>
+
+              {/* Logo 4: Circular */}
+              <Card
+                className={`cursor-pointer transition-all ${selectedLogo === 4 ? "ring-4 ring-blue-500 shadow-xl" : "hover:shadow-lg"}`}
+                onClick={() => setSelectedLogo(4)}
+              >
+                <CardHeader>
+                  <CardTitle className="text-center">Opción 4: Circular</CardTitle>
+                </CardHeader>
+                <CardContent className="flex flex-col items-center justify-center h-64 bg-white">
+                  <svg width="180" height="180" viewBox="0 0 180 180" className="mb-4">
+                    {/* Círculo exterior */}
+                    <circle cx="90" cy="90" r="85" fill="none" stroke="#2A5CAA" strokeWidth="4" />
+
+                    {/* Corona central */}
+                    <path
+                      d="M 70 70 L 75 55 L 80 65 L 85 55 L 90 65 L 95 55 L 100 65 L 105 55 L 110 70 Z"
+                      fill="#FFD700"
+                      stroke="#FFA500"
+                      strokeWidth="1"
+                    />
+                    <circle cx="75" cy="60" r="2" fill="#FF6B6B" />
+                    <circle cx="85" cy="60" r="2" fill="#4CAF50" />
+                    <circle cx="95" cy="60" r="2" fill="#FF6B6B" />
+                    <circle cx="105" cy="60" r="2" fill="#4CAF50" />
+
+                    {/* Juguete central */}
+                    <rect x="82" y="75" width="16" height="16" fill="#FF6B6B" rx="3" />
+                    <circle cx="90" cy="83" r="3" fill="white" />
+
+                    {/* Texto curvo superior */}
+                    <path id="circle-top" d="M 30 90 A 60 60 0 0 1 150 90" fill="none" />
+                    <text
+                      className="fill-blue-600 font-bold"
+                      style={{ fontFamily: "Arial, sans-serif", fontSize: "16px" }}
+                    >
+                      <textPath href="#circle-top" startOffset="50%" textAnchor="middle">
+                        JUGUETERÍA
+                      </textPath>
+                    </text>
+
+                    {/* Texto curvo inferior */}
+                    <path id="circle-bottom" d="M 150 90 A 60 60 0 0 1 30 90" fill="none" />
+                    <text
+                      className="fill-blue-700 font-bold"
+                      style={{ fontFamily: "Arial, sans-serif", fontSize: "18px" }}
+                    >
+                      <textPath href="#circle-bottom" startOffset="50%" textAnchor="middle">
+                        DANIEL
+                      </textPath>
+                    </text>
+
+                    {/* Juguetes decorativos */}
+                    <circle cx="45" cy="45" r="4" fill="#4CAF50" opacity="0.8" />
+                    <rect x="130" y="40" width="8" height="8" fill="#FFD700" opacity="0.8" rx="1" />
+                    <circle cx="135" cy="135" r="4" fill="#FF6B6B" opacity="0.8" />
+                    <polygon points="40,135 48,145 32,145" fill="#2A5CAA" opacity="0.8" />
+                  </svg>
+                  {selectedLogo === 4 && <Badge className="bg-blue-600">Seleccionado</Badge>}
+                </CardContent>
+              </Card>
+
+              {/* Logo 5: Moderno con Bloques */}
+              <Card
+                className={`cursor-pointer transition-all ${selectedLogo === 5 ? "ring-4 ring-blue-500 shadow-xl" : "hover:shadow-lg"}`}
+                onClick={() => setSelectedLogo(5)}
+              >
+                <CardHeader>
+                  <CardTitle className="text-center">Opción 5: Bloques Modernos</CardTitle>
+                </CardHeader>
+                <CardContent className="flex flex-col items-center justify-center h-64 bg-white">
+                  <svg width="200" height="120" viewBox="0 0 200 120" className="mb-4">
+                    {/* Bloques de construcción formando corona */}
+                    <rect x="20" y="30" width="15" height="15" fill="#FFD700" rx="2" />
+                    <rect x="40" y="20" width="15" height="15" fill="#FF6B6B" rx="2" />
+                    <rect x="60" y="25" width="15" height="15" fill="#4CAF50" rx="2" />
+                    <rect x="80" y="20" width="15" height="15" fill="#2A5CAA" rx="2" />
+                    <rect x="100" y="30" width="15" height="15" fill="#FFD700" rx="2" />
+
+                    {/* Círculos en los bloques (estilo LEGO) */}
+                    <circle cx="27.5" cy="37.5" r="3" fill="#FFA500" />
+                    <circle cx="47.5" cy="27.5" r="3" fill="#FF4444" />
+                    <circle cx="67.5" cy="32.5" r="3" fill="#45A049" />
+                    <circle cx="87.5" cy="27.5" r="3" fill="#1E3A8A" />
+                    <circle cx="107.5" cy="37.5" r="3" fill="#FFA500" />
+
+                    {/* Juguetería */}
+                    <text
+                      x="100"
+                      y="65"
+                      textAnchor="middle"
+                      className="fill-blue-600 font-bold"
+                      style={{ fontFamily: "Arial, sans-serif", fontSize: "18px" }}
+                    >
+                      JUGUETERÍA
+                    </text>
+
+                    {/* Daniel */}
+                    <text
+                      x="100"
+                      y="90"
+                      textAnchor="middle"
+                      className="fill-blue-700 font-bold"
+                      style={{ fontFamily: "Arial, sans-serif", fontSize: "24px" }}
+                    >
+                      DANIEL
+                    </text>
+
+                    {/* Juguetes adicionales */}
+                    <circle cx="160" cy="50" r="8" fill="#FF6B6B" opacity="0.6" />
+                    <rect x="170" y="70" width="10" height="10" fill="#4CAF50" opacity="0.6" rx="2" />
+                  </svg>
+                  {selectedLogo === 5 && <Badge className="bg-blue-600">Seleccionado</Badge>}
+                </CardContent>
+              </Card>
+
+              {/* Logo 6: Estilo Vintage */}
+              <Card
+                className={`cursor-pointer transition-all ${selectedLogo === 6 ? "ring-4 ring-blue-500 shadow-xl" : "hover:shadow-lg"}`}
+                onClick={() => setSelectedLogo(6)}
+              >
+                <CardHeader>
+                  <CardTitle className="text-center">Opción 6: Vintage</CardTitle>
+                </CardHeader>
+                <CardContent className="flex flex-col items-center justify-center h-64 bg-white">
+                  <svg width="200" height="120" viewBox="0 0 200 120" className="mb-4">
+                    {/* Marco decorativo */}
+                    <rect x="10" y="10" width="180" height="100" fill="none" stroke="#2A5CAA" strokeWidth="3" rx="10" />
+                    <rect x="15" y="15" width="170" height="90" fill="none" stroke="#FFD700" strokeWidth="1" rx="8" />
+
+                    {/* Corona ornamental */}
+                    <path
+                      d="M 80 25 L 85 15 L 90 22 L 95 15 L 100 22 L 105 15 L 110 22 L 115 15 L 120 25 Z"
+                      fill="#FFD700"
+                      stroke="#FFA500"
+                      strokeWidth="1"
+                    />
+
+                    {/* Gemas en la corona */}
+                    <ellipse cx="85" cy="20" rx="2" ry="3" fill="#FF6B6B" />
+                    <ellipse cx="95" cy="20" rx="2" ry="3" fill="#4CAF50" />
+                    <ellipse cx="105" cy="20" rx="2" ry="3" fill="#FF6B6B" />
+                    <ellipse cx="115" cy="20" rx="2" ry="3" fill="#4CAF50" />
+
+                    {/* Juguetería */}
+                    <text
+                      x="100"
+                      y="50"
+                      textAnchor="middle"
+                      className="fill-blue-600 font-bold"
+                      style={{ fontFamily: "serif", fontSize: "16px" }}
+                    >
+                      JUGUETERÍA
+                    </text>
+
+                    {/* Daniel con estilo serif */}
+                    <text
+                      x="100"
+                      y="75"
+                      textAnchor="middle"
+                      className="fill-blue-700 font-bold"
+                      style={{ fontFamily: "serif", fontSize: "22px" }}
+                    >
+                      DANIEL
+                    </text>
+
+                    {/* Decoraciones vintage */}
+                    <path d="M 30 60 Q 35 55 40 60 Q 35 65 30 60" fill="#FFD700" opacity="0.5" />
+                    <path d="M 160 60 Q 165 55 170 60 Q 165 65 160 60" fill="#FFD700" opacity="0.5" />
+
+                    {/* Osito de peluche vintage */}
+                    <circle cx="50" cy="85" r="6" fill="#D2691E" />
+                    <circle cx="47" cy="82" r="2" fill="#D2691E" />
+                    <circle cx="53" cy="82" r="2" fill="#D2691E" />
+                    <circle cx="48" cy="84" r="0.5" fill="black" />
+                    <circle cx="52" cy="84" r="0.5" fill="black" />
+                  </svg>
+                  {selectedLogo === 6 && <Badge className="bg-blue-600">Seleccionado</Badge>}
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Información del logo seleccionado */}
+            <Card className="mt-8">
+              <CardHeader>
+                <CardTitle className="text-center">Detalles del Diseño Seleccionado</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <h3 className="font-bold text-lg mb-3">Características:</h3>
+                    {selectedLogo === 1 && (
+                      <ul className="space-y-2 text-sm">
+                        <li>• Corona integrada en la letra "D"</li>
+                        <li>• Paleta: Azul brillante (#2A5CAA) y dorado (#FFD700)</li>
+                        <li>• Elementos decorativos con juguetes</li>
+                        <li>• Estilo moderno y llamativo</li>
+                      </ul>
+                    )}
+                    {selectedLogo === 2 && (
+                      <ul className="space-y-2 text-sm">
+                        <li>• Corona como punto de la "i" en Juguetería</li>
+                        <li>• Diseño sutil pero distintivo</li>
+                        <li>• Fácil de reproducir en diferentes tamaños</li>
+                        <li>• Elementos decorativos equilibrados</li>
+                      </ul>
+                    )}
+                    {selectedLogo === 3 && (
+                      <ul className="space-y-2 text-sm">
+                        <li>• Formato horizontal ideal para letreros</li>
+                        <li>• Corona prominente como elemento principal</li>
+                        <li>• Juguetes decorativos alrededor</li>
+                        <li>• Perfecto para fachadas y publicidad</li>
+                      </ul>
+                    )}
+                    {selectedLogo === 4 && (
+                      <ul className="space-y-2 text-sm">
+                        <li>• Diseño circular con texto curvo</li>
+                        <li>• Corona y juguete central</li>
+                        <li>• Ideal para sellos y aplicaciones redondas</li>
+                        <li>• Elementos decorativos distribuidos</li>
+                      </ul>
+                    )}
+                    {selectedLogo === 5 && (
+                      <ul className="space-y-2 text-sm">
+                        <li>• Corona formada por bloques tipo LEGO</li>
+                        <li>• Estilo moderno y juguetón</li>
+                        <li>• Apela directamente a juguetes de construcción</li>
+                        <li>• Colores vibrantes y alegres</li>
+                      </ul>
+                    )}
+                    {selectedLogo === 6 && (
+                      <ul className="space-y-2 text-sm">
+                        <li>• Estilo vintage con marco ornamental</li>
+                        <li>• Corona clásica con gemas</li>
+                        <li>• Tipografía serif elegante</li>
+                        <li>• Incluye osito de peluche vintage</li>
+                      </ul>
+                    )}
+                  </div>
+
+                  <div>
+                    <h3 className="font-bold text-lg mb-3">Paleta de Colores:</h3>
+                    <div className="grid grid-cols-4 gap-2">
+                      <div className="text-center">
+                        <div className="w-12 h-12 bg-blue-600 rounded mx-auto mb-1"></div>
+                        <span className="text-xs">Azul Principal</span>
+                      </div>
+                      <div className="text-center">
+                        <div className="w-12 h-12 bg-yellow-400 rounded mx-auto mb-1"></div>
+                        <span className="text-xs">Dorado</span>
+                      </div>
+                      <div className="text-center">
+                        <div className="w-12 h-12 bg-red-400 rounded mx-auto mb-1"></div>
+                        <span className="text-xs">Rojo Acento</span>
+                      </div>
+                      <div className="text-center">
+                        <div className="w-12 h-12 bg-green-400 rounded mx-auto mb-1"></div>
+                        <span className="text-xs">Verde Acento</span>
+                      </div>
+                    </div>
+
+                    <div className="mt-4">
+                      <h4 className="font-semibold mb-2">Códigos de Color:</h4>
+                      <div className="text-sm space-y-1">
+                        <div>• Azul: #2A5CAA</div>
+                        <div>• Dorado: #FFD700</div>
+                        <div>• Rojo: #FF6B6B</div>
+                        <div>• Verde: #4CAF50</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Botones de acción */}
+            <div className="flex justify-center gap-4 mt-6">
+              <Button className="bg-blue-600 hover:bg-blue-700">Descargar SVG</Button>
+              <Button variant="outline">Ver en Diferentes Tamaños</Button>
+              <Button variant="outline">Generar Variaciones</Button>
+            </div>
+          </div>
+  
       {/* Modal de Checkout */}
       <Dialog open={isCheckoutOpen} onOpenChange={setIsCheckoutOpen}>
         <DialogContent className="max-w-md border-0 shadow-2xl">
