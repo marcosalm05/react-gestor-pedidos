@@ -11,7 +11,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Checkbox } from "@/components/ui/checkbox"
-
+import Image from "next/image"
 interface Product {
   pro_codigo: number
   pre_descripcion?: string
@@ -267,9 +267,11 @@ export default function EcommercePage() {
                 <Card key={product.pro_codigo} className="hover:shadow-xl transition-all duration-300 border-0 shadow-lg">
                   <CardContent className="p-0">
                     <div className="relative">
-                      <img
+                      <Image
                         src={product.image || "/placeholder.svg"}
                         alt={product.pro_detalle}
+                        width={250}
+                        height={250}
                         className="w-full h-48 object-cover rounded-t-lg"
                       />
                       <Badge className="absolute top-3 left-3 bg-blue-600 hover:bg-blue-700">{product.cat_descri}</Badge>
